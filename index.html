@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pablo Andrés Gago | Kinesiología Avanzada</title>
+
+    <!-- Meta/SEO -->
+    <meta name="description"
+        content="Kinesiología avanzada y rehabilitación deportiva en Buenos Aires. Más de 15 años de experiencia con Pablo Andrés Gago.">
+    <meta property="og:title" content="Pablo Andrés Gago - Kinesiólogo">
+    <meta property="og:description" content="Recuperación, salud y bienestar. Tratamientos personalizados en CABA.">
+    <meta property="og:locale" content="es_AR">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="#inicio" class="logo">PABLO GAGO</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#inicio"><i class="fa-solid fa-house"></i> Inicio</a>
+                <a href="#servicios"><i class="fa-solid fa-layer-group"></i> Servicios</a>
+                <a href="#sobre-mi"><i class="fa-solid fa-user"></i> Sobre mí</a>
+                <a href="#consultorio"><i class="fa-solid fa-house-medical"></i> Consultorio</a>
+                <a href="#ubicacion"><i class="fa-solid fa-location-dot"></i> Ubicación</a>
+                <a href="https://wa.me/5491156426761?text=Hola%20Pablo%2C%20vi%20tu%20website%2C%20me%20gustaría%20reservar%20un%20turno"
+                    target="_blank" class="neumorphic-btn btn-primary mobile-only">Reservar Turno</a>
+            </nav>
+            <a href="https://wa.me/5491156426761?text=Hola%20Pablo%2C%20vi%20tu%20website%2C%20me%20gustaria%20reservar%20un%20turno"
+                target="_blank" class="neumorphic-btn btn-primary desktop-only">Reservar Turno</a>
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="hero-animate">Kinesiología Avanzada para tú Bienestar Físico</h1>
+                <p class="hero-animate delay-1">Más de 15 años de experiencia en tratamientos personalizados y
+                    efectivos. Recuperá tu movimiento,
+                    recuperá tu vida.</p>
+                <div class="hero-buttons hero-animate delay-2">
+                    <a href="https://wa.me/5491156426761?text=Hola%20Pablo%2C%20vi%20tu%20website%2C%20me%20gustaria%20reservar%20un%20turno"
+                        target="_blank" class="neumorphic-btn btn-primary">Reservar Turno</a>
+                    <a href="#servicios" class="neumorphic-btn btn-secondary">Explorar <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Placeholder Image -->
+                <img src="imagenes/pablogagoSinFondo - copia.png" alt="Lic. Pablo Andrés Gago"
+                    class="hero-animate delay-3">
+                <div class="hero-stats-wrapper hero-animate delay-3">
+                    <div class="hero-stats-card">
+                        <div class="stats-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="stats-text">
+                            <h4>+100</h4>
+                            <p>Pacientes Satisfechos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>Servicios</h2>
+            </div>
+
+            <div class="services-carousel-wrapper">
+                <button class="service-nav-btn prev" id="prevService">❮</button>
+                <div class="services-carousel" id="servicesTrack">
+                    <!-- Service 1 -->
+                    <div class="neumorphic-card service-card">
+                        <div class="service-icon"><i class="fa-solid fa-crutch"></i></div>
+                        <h3>Rehabilitación Física</h3>
+                        <p>Recuperación integral del movimiento y la función corporal.</p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="neumorphic-card service-card">
+                        <div class="service-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
+                        <h3>Fisioterapia</h3>
+                        <p>Tratamientos manuales y físicos para aliviar el dolor y mejorar la movilidad.</p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="neumorphic-card service-card">
+                        <div class="service-icon"><i class="fa-solid fa-ruler-combined"></i></div>
+                        <h3>Método 3 Escuadras</h3>
+                        <p>Corrección postural especializada para el bienestar estructural global.</p>
+                        <a href="https://w1.tresescuadras.com.ar/" target="_blank" class="service-link-btn"
+                            aria-label="Visitar 3 Escuadras">
+                            <span>Saber mas</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="neumorphic-card service-card">
+                        <div class="service-icon"><i class="fa-solid fa-person-running"></i></div>
+                        <h3>Rehabilitación Deportiva</h3>
+                        <p>Readaptación física específica para volver a tu mejor nivel deportivo.</p>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="neumorphic-card service-card">
+                        <div class="service-icon"><i class="fa-solid fa-bullseye"></i></div>
+                        <h3>Acupuntura</h3>
+                        <p>Terapia complementaria para el alivio del dolor y el equilibrio energético.</p>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="neumorphic-card service-card">
+                        <div class="service-icon"><i class="fa-solid fa-tape"></i></div>
+                        <h3>Taping Neuromuscular</h3>
+                        <p>Vendaje terapéutico para dar soporte y estabilidad sin limitar el movimiento.</p>
+                    </div>
+                </div>
+                <button class="service-nav-btn next" id="nextService">❯</button>
+                <div class="services-dots" id="servicesDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Mí -->
+    <section class="about" id="sobre-mi">
+        <div class="container">
+
+            <div class="about-card-parent animate-on-scroll">
+                <div class="about-photo-wrapper">
+                    <!-- Circular Photo Card -->
+                    <img src="imagenes/pabloCV.png" alt="Lic. Pablo Andrés Gago">
+                </div>
+
+                <div class="about-text-card">
+                    <!-- Text Card -->
+                    <div class="about-header">
+                        <h2>Pablo Andrés Gago</h2>
+                        <span class="role-badge">Lic. Kinesiologo Fisiatra</span>
+                    </div>
+
+                    <div class="about-bio">
+                        <p>Soy el Lic. Pablo Andrés Gago, especialista en Kinesiología y Fisiatría con más de 15 años de
+                            trayectoria.</p>
+                        <p>Mi enfoque se basa en la atención humanizada y en la evidencia científica. Entiendo que cada
+                            paciente es único, por lo que diseño planes de tratamiento a medida para asegurar la
+                            recuperación más efectiva y rápida posible.</p>
+                        <p class="highlight-text">"Me apasiona ayudar a las personas a vivir sin dolor y recuperar su
+                            máximo potencial físico."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultorio -->
+    <section class="studio" id="consultorio">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>Consultorio</h2>
+                <p>Un espacio moderno, equipado y confortable.</p>
+            </div>
+
+            <div class="gallery-carousel-wrapper animate-on-scroll">
+                <button class="carousel-btn prev" id="prevGallery">❮</button>
+                <div class="gallery-track" id="galleryTrack">
+                    <div class="gallery-slide active">
+                        <img src="imagenes/consultorio1.jpg" alt="Sala de espera">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="imagenes/consultorio2.jpg" alt="Gimnasio de rehabilitación">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="imagenes/consultorio3.jpg" alt="Box de atención">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="imagenes/trabajando.png" alt="trabajando">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="imagenes/trabajando2.png" alt="Trabajando">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="imagenes/trabajando3.png" alt="Trabajando">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="imagenes/trabajando4.png" alt="Trabajando">
+                    </div>
+                </div>
+                <button class="carousel-btn next" id="nextGallery">❯</button>
+                <div class="carousel-dots" id="galleryDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación -->
+    <section class="location" id="ubicacion">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>Ubicación</h2>
+                <p>Encontranos fácilmente, haz click en "como llegar" del mapa.</p>
+            </div>
+
+            <div class="location-content animate-on-scroll">
+                <div class="neumorphic-card map-card">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6565.653137840155!2d-58.51214572445683!3d-34.633822772943546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc8355a355a4d%3A0x8a52623b37592bb8!2sC.%20Irigoyen%20642%2C%20C1407CAP%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires%2C%20Argentina!5e0!3m2!1ses!2sus!4v1765483927294!5m2!1ses!2sus"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="location-info">
+                    <div class="neumorphic-card info-card">
+                        <div class="info-icon"><i class="fa-solid fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Dirección</h4>
+                            <p>C. Irigoyen 642<br>CABA, Argentina</p>
+                        </div>
+                    </div>
+                    <div class="neumorphic-card info-card">
+                        <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div>
+                            <h4>Horarios</h4>
+                            <p>Lun a Vie: 15:30 - 20:00 hs<br>Siempre con turno previo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>Lo que dicen mis pacientes</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="neumorphic-card testimonial-card animate-on-scroll delay-100">
+                    <div class="quote-icon">❝</div>
+                    <p>"Recuperé mi rodilla gracias a Pablo; muy profesional y claro en el seguimiento. Volví a correr
+                        en menos tiempo del esperado."</p>
+                    <h5>— María G.</h5>
+                    <small>⭐⭐⭐⭐⭐</small>
+                </div>
+                <div class="neumorphic-card testimonial-card animate-on-scroll delay-200">
+                    <div class="quote-icon">❝</div>
+                    <p>"Excelente trato y resultados. El consultorio es impecable y la atención súper dedicada. Lo
+                        recomiendo al 100%."</p>
+                    <h5>— Juan P.</h5>
+                    <small>⭐⭐⭐⭐⭐</small>
+                </div>
+                <div class="neumorphic-card testimonial-card animate-on-scroll delay-300">
+                    <div class="quote-icon">❝</div>
+                    <p>"Llegué con un dolor lumbar crónico y con el método de las 3 escuadras mejoré muchísimo mi
+                        postura y calidad de vida."</p>
+                    <h5>— Sofía L.</h5>
+                    <small>⭐⭐⭐⭐⭐</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <!-- New Card Design based on image -->
+            <div class="contact-card-redesign animate-on-scroll">
+                <div class="contact-left">
+
+                    <h3>Contacto</h3>
+
+                    <a href="mailto:licpablogago@hotmail.com" class="neumorphic-pill-link">
+                        <i class="fa-solid fa-envelope"></i> licpablogago@hotmail.com
+                    </a>
+
+                    <a href="https://wa.me/5491156426761?text=Hola%20Pablo%2C%20vi%20tu%20website%2C%20me%20gustaria%20reservar%20un%20turno"
+                        class="neumorphic-pill-link">
+                        <i class="fa-solid fa-phone"></i> +54 11 56426761
+                    </a>
+                </div>
+
+                <div class="contact-right">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="input-inset" placeholder="Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="input-inset" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="input-inset textarea-inset" rows="4" placeholder="Mensaje"></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit-teal">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>PABLO GAGO</h3>
+                    <p>Kinesiología Avanzada</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://www.instagram.com/pablo.gago/" class="social-btn"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/17tXK79JGN/?mibextid=wwXIfr" class="social-btn"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Pablo Andrés Gago. Todos los derechos reservados.
+                <br>
+                Diseñado y desarrollado por <a href="https://gonzaorellana.com.ar/portfolio/" target="_blank"
+                    class="developer-link">Gonzalo Orellana</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
