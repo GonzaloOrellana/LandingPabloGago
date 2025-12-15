@@ -1,15 +1,14 @@
 :root {
-    /* Colors */
+    /* Colors - Light Mode */
     --primary-blue: #2557a4;
     --bg-color: #e8edf6;
     --white: #ffffff;
     --text-main: #333333;
     --text-secondary: #666666;
 
-    /* Shadows - Neumorphism */
+    /* Shadows - Neumorphism Light */
     --shadow-light: #ffffff;
     --shadow-dark: rgba(163, 177, 198, 0.4);
-    /* Adjusted for the blue-ish white bg */
 
     /* Box Shadows */
     --shadow-out: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
@@ -22,6 +21,26 @@
     --container-width: 1200px;
     --header-height: 80px;
     --transition: all 0.3s ease;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    /* Colors - Dark Mode */
+    --primary-blue: #5b8fd9;
+    --bg-color: #1e1e2e;
+    --white: #ffffff;
+    --text-main: #e4e4e7;
+    --text-secondary: #a1a1aa;
+
+    /* Shadows - Neumorphism Dark */
+    --shadow-light: rgba(255, 255, 255, 0.05);
+    --shadow-dark: rgba(0, 0, 0, 0.6);
+
+    /* Box Shadows Dark */
+    --shadow-out: 8px 8px 16px rgba(0, 0, 0, 0.6), -8px -8px 16px rgba(255, 255, 255, 0.05);
+    --shadow-in: inset 4px 4px 8px rgba(0, 0, 0, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.05);
+    --shadow-hover: 12px 12px 24px rgba(0, 0, 0, 0.7), -12px -12px 24px rgba(255, 255, 255, 0.08);
+    --shadow-in-btn: inset 4px 4px 8px rgba(0, 0, 0, 0.6), inset -4px -4px 8px rgba(0, 0, 0, 0.6);
 }
 
 * {
@@ -42,6 +61,7 @@ body {
     font-family: 'Inter', 'Poppins', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1,
@@ -142,6 +162,15 @@ img {
     color: var(--white);
 }
 
+/* Dark Mode Primary Button */
+body.dark-mode .neumorphic-btn.btn-primary {
+    box-shadow: 0 8px 16px rgba(91, 143, 217, 0.3);
+}
+
+body.dark-mode .neumorphic-btn.btn-primary:hover {
+    box-shadow: 0 12px 24px rgba(91, 143, 217, 0.4);
+}
+
 .desktop-only {
     display: inline-block;
 }
@@ -176,7 +205,6 @@ header {
     width: 100%;
     height: var(--header-height);
     background: rgba(232, 237, 246, 0.9);
-    /* slight transparency */
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 0 2rem;
@@ -184,27 +212,38 @@ header {
     align-items: center;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     border-radius: 0 0 30px 30px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dark Mode Header */
+body.dark-mode header {
+    background: rgba(30, 30, 46, 0.9);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
 }
 
 .nav-container {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     max-width: var(--container-width);
     margin: 0 auto;
+    gap: 2rem;
 }
 
 .nav-container>.logo {
-    justify-self: start;
+    flex-shrink: 0;
 }
 
 .nav-container>.nav-links {
-    justify-self: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
-.nav-container>.desktop-only {
-    justify-self: end;
+.nav-container>.desktop-only,
+.nav-container>.dark-mode-toggle-container {
+    flex-shrink: 0;
 }
 
 
@@ -217,7 +256,7 @@ header {
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     align-items: center;
 }
 
@@ -228,24 +267,31 @@ header {
     border-radius: 30px;
     background: var(--bg-color);
     box-shadow: var(--shadow-in);
-    /* Design from photo */
     color: var(--text-secondary);
     transition: var(--transition);
     display: flex;
     align-items: center;
     gap: 8px;
+    white-space: nowrap;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
     color: var(--primary-blue);
     box-shadow: var(--shadow-out);
-    /* Pop effect on hover */
     transform: translateY(-2px);
 }
 
 .nav-links a.mobile-only {
     display: none;
+}
+
+/* Nav Actions Container */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
 }
 
 /* Navbar Button Specifics */
@@ -267,12 +313,10 @@ header {
     background: var(--bg-color);
     box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
     border-radius: 50%;
-    /* Photo look */
     cursor: pointer;
     position: relative;
     z-index: 1001;
     display: none;
-    /* Default hidden on desktop, override in media query */
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -284,16 +328,75 @@ header {
     display: block;
     width: 24px;
     height: 3px;
-    background: #ff6b6b;
-    /* Accent color or match photo? User said 'respecting page colors' */
     background: var(--primary-blue);
-    /* Using primary blue as requested */
     border-radius: 3px;
     transition: var(--transition);
 }
 
 .mobile-toggle:active {
     box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+}
+
+/* Dark Mode Toggle Switch - Slider Style */
+.dark-mode-toggle-container {
+    display: flex;
+    align-items: center;
+}
+
+.dark-mode-checkbox {
+    display: none;
+}
+
+.dark-mode-toggle {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    background: var(--bg-color);
+    border-radius: 50px;
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 32px;
+    height: 32px;
+    background: var(--bg-color);
+    border-radius: 50%;
+    box-shadow: var(--shadow-out);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.dark-mode-checkbox:checked+.dark-mode-toggle .toggle-slider {
+    left: 44px;
+}
+
+/* Icon change */
+.toggle-slider i::before {
+    content: "\f185";
+    /* fa-sun */
+}
+
+.dark-mode-checkbox:checked+.dark-mode-toggle .toggle-slider i::before {
+    content: "\f186";
+    /* fa-moon */
+}
+
+.dark-mode-toggle:hover .toggle-slider {
+    transform: scale(1.05);
+}
+
+.dark-mode-toggle:active .toggle-slider {
+    transform: scale(0.98);
 }
 
 /* Hero Section */
@@ -400,6 +503,11 @@ header {
     font-size: 0.85rem;
     color: var(--text-secondary);
     font-weight: 500;
+}
+
+/* Dark Mode Stats Text - más oscuro para mejor contraste */
+body.dark-mode .stats-text p {
+    color: #6b7280;
 }
 
 @keyframes float {

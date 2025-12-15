@@ -1,15 +1,70 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Header Scroll Effect
+    /* =========================================
+       Dark Mode Toggle
+       ========================================= */
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
     const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.background = 'rgba(232, 237, 246, 0.95)';
-            header.style.boxShadow = '0 4px 10px rgba(0,0,0,0.05)';
+
+    // Función para actualizar el header según el modo actual
+    function updateHeaderStyles() {
+        const isDark = body.classList.contains('dark-mode');
+        const scrolled = window.scrollY > 50;
+
+        if (scrolled) {
+            header.style.background = isDark ? 'rgba(30, 30, 46, 0.95)' : 'rgba(232, 237, 246, 0.95)';
+            header.style.boxShadow = isDark ? '0 4px 10px rgba(0,0,0,0.3)' : '0 4px 10px rgba(0,0,0,0.05)';
         } else {
-            header.style.background = 'rgba(232, 237, 246, 0.8)';
+            header.style.background = isDark ? 'rgba(30, 30, 46, 0.8)' : 'rgba(232, 237, 246, 0.8)';
             header.style.boxShadow = 'none';
         }
+    }
+
+    // Verificar preferencia guardada en localStorage
+    const savedTheme = localStorage.getItem('theme');
+
+    // Detectar preferencia del sistema
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // Aplicar tema guardado o preferencia del sistema
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        if (darkModeToggle) darkModeToggle.checked = true;
+    } else if (!savedTheme && prefersDark.matches) {
+        body.classList.add('dark-mode');
+        if (darkModeToggle) darkModeToggle.checked = true;
+    }
+
+    // Actualizar header al cargar
+    updateHeaderStyles();
+
+    // Toggle al hacer click (checkbox change event)
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('change', () => {
+            body.classList.toggle('dark-mode');
+
+            // Actualizar header inmediatamente
+            updateHeaderStyles();
+
+            // Guardar preferencia en localStorage
+            const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+    }
+
+    // Escuchar cambios en la preferencia del sistema (solo si no hay preferencia manual)
+    prefersDark.addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+            body.classList.toggle('dark-mode', e.matches);
+            if (darkModeToggle) darkModeToggle.checked = e.matches;
+            updateHeaderStyles();
+        }
+    });
+
+    // Header Scroll Effect
+    window.addEventListener('scroll', () => {
+        updateHeaderStyles();
     });
 
     // Mobile Menu Toggle
