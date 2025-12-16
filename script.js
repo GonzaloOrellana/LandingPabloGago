@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* =========================================
-       Dark Mode Toggle
+       Cambio de Modo Oscuro
        ========================================= */
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Actualizar header al cargar
     updateHeaderStyles();
 
-    // Toggle al hacer click (checkbox change event)
+    // Toggle al hacer click (evento de cambio de checkbox)
     if (darkModeToggle) {
         darkModeToggle.addEventListener('change', () => {
             body.classList.toggle('dark-mode');
@@ -62,12 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Header Scroll Effect
+    // Efecto de Scroll del Header
     window.addEventListener('scroll', () => {
         updateHeaderStyles();
     });
 
-    // Mobile Menu Toggle
+    // Alternar Menú Móvil
     const toggle = document.getElementById('mobileToggle');
     const navLinks = document.getElementById('navLinks');
 
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.toggle('menu-open');
     });
 
-    // Form Submission Mock
+    // Simulación de Envío de Formulario
     const form = document.getElementById('contactForm');
     form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1500);
     });
 
-    // Services 3D Carousel
+    // Carrusel 3D de Servicios
     const track = document.getElementById('servicesTrack');
     const cards = Array.from(document.querySelectorAll('.service-card'));
     const prevBtn = document.getElementById('prevService');
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateCarousel() {
         cards.forEach((card, index) => {
-            card.className = 'neumorphic-card service-card'; // Reset
+            card.className = 'neumorphic-card service-card'; // Reiniciar
 
             if (index === currentIndex) {
                 card.classList.add('active');
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Update dots
+        // Actualizar puntos
         dotsContainer.innerHTML = '';
         cards.forEach((_, idx) => {
             const dot = document.createElement('button');
@@ -138,10 +138,10 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel();
     });
 
-    // Initialize Services
+    // Inicializar Servicios
     updateCarousel();
 
-    // Gallery Carousel Logic
+    // Lógica del Carrusel de Galería
     const gallerySlides = Array.from(document.querySelectorAll('.gallery-slide'));
     const prevGallery = document.getElementById('prevGallery');
     const nextGallery = document.getElementById('nextGallery');
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Update Dots
+        // Actualizar Puntos
         galleryDots.innerHTML = '';
         gallerySlides.forEach((_, idx) => {
             const dot = document.createElement('button');
@@ -179,18 +179,18 @@ document.addEventListener('DOMContentLoaded', () => {
             updateGallery();
         });
 
-        // Auto play optional? Let's stick to manual for now as per request.
+        // ¿Reproducción automática opcional? Mantengamos manual por ahora según solicitud.
         updateGallery();
     }
 
-    // Smooth Scrolling
+    // Desplazamiento Suave
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                navLinks.classList.remove('active'); // Close menu
-                document.body.classList.remove('menu-open'); // Remove blur
+                navLinks.classList.remove('active'); // Cerrar menú
+                document.body.classList.remove('menu-open'); // Eliminar desenfoque
                 const headerOffset = 80;
                 const elementPosition = target.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -204,25 +204,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* =========================================
-       Active Navbar Link on Scroll
+       Enlace de Navbar Activo al Desplazarse
        ========================================= */
     const sections = document.querySelectorAll('section');
     const navItems = document.querySelectorAll('.nav-links a');
 
     const navObserverOptions = {
-        threshold: 0.3 // Trigger when 30% of section is visible
+        threshold: 0.3 // Activar cuando el 30% de la sección es visible
     };
 
     const navObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Remove active class from all
+                // Eliminar clase active de todos
                 navItems.forEach(link => {
                     link.classList.remove('active');
-                    // Handle mobile only link specifically if needed, but querySelectorAll covers it
+                    // Manejar enlace solo móvil específicamente si es necesario, pero querySelectorAll lo cure
                 });
 
-                // Add active class to corresponding link
+                // Agregar clase active al enlace correspondiente
                 const id = entry.target.getAttribute('id');
                 const activeLink = document.querySelector(`.nav-links a[href="#${id}"]`);
                 if (activeLink) {
@@ -237,21 +237,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* =========================================
-       Scroll Animations & Hero Entry
+       Animaciones de Scroll y Entrada del Hero
        ========================================= */
 
-    // Intersection Observer for Scroll Animations
+    // Intersection Observer para Animaciones de Scroll
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.1 // Trigger when 10% of element is visible
+        threshold: 0.1 // Activar cuando el 10% del elemento es visible
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target); // Run once
+                observer.unobserve(entry.target); // Ejecutar una vez
             }
         });
     }, observerOptions);
@@ -260,18 +260,18 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Hero Entry Animation Trigger
-    // Elements with .hero-animate are handled by CSS animation-delay
-    // But we can ensure smooth loading by adding a class to body or section if needed
-    // The CSS @keyframes will run automatically on load.
+    // Activador de Animación de Entrada del Hero
+    // Los elementos con .hero-animate son manejados por animation-delay de CSS
+    // Pero podemos asegurar una carga suave añadiendo una clase al body o sección si es necesario
+    // Los @keyframes de CSS se ejecutarán automáticamente al cargar.
 
     /* =========================================
-       Custom Cursor Logic
+       Lógica de Cursor Personalizado
        ========================================= */
     const cursorDot = document.querySelector('[data-cursor-dot]');
     const cursorOutline = document.querySelector('[data-cursor-outline]');
 
-    // Check if device supports hover (desktop)
+    // Comprobar si el dispositivo soporta hover (escritorio)
     if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
 
         let mouseX = 0;
@@ -283,11 +283,11 @@ document.addEventListener('DOMContentLoaded', () => {
             mouseX = e.clientX;
             mouseY = e.clientY;
 
-            // Dot moves instantly
+            // El punto se mueve instantáneamente
             cursorDot.style.left = `${mouseX}px`;
             cursorDot.style.top = `${mouseY}px`;
 
-            // Interaction with clickable elements
+            // Interacción con elementos clickeables
             const target = e.target;
             if (target.matches('a, button, .service-card, input, textarea')) {
                 cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
@@ -298,11 +298,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Loop for smooth outline movement
+        // Bucle para movimiento suave del contorno
         const animateCursor = () => {
-            // Linear Interpolation (Lerp) for delay
-            // current = current + (target - current) * fraction
-            outlineX += (mouseX - outlineX) * 0.15; // 0.15 = speed
+            // Interpolación Lineal (Lerp) para retraso
+            // actual = actual + (objetivo - actual) * fracción
+            outlineX += (mouseX - outlineX) * 0.15; // 0.15 = velocidad
             outlineY += (mouseY - outlineY) * 0.15;
 
             cursorOutline.style.left = `${outlineX}px`;
@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         animateCursor();
     } else {
-        // Hide elements effectively if JS detects touch
+        // Ocultar elementos efectivamente si JS detecta táctil
         if (cursorDot) cursorDot.style.display = 'none';
         if (cursorOutline) cursorOutline.style.display = 'none';
     }
