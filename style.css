@@ -1080,7 +1080,7 @@ body.dark-mode .stats-text p {
     display: inline-block;
     padding: 18px 30px;
     /* Matches input padding */
-    width: 100%;
+    width: 50%;
     text-align: center;
     background: var(--bg-color);
     color: var(--text-main);
@@ -1175,6 +1175,10 @@ body.dark-mode .stats-text p {
     .contact-left {
         align-items: center;
         text-align: center;
+        width: 100%;
+    }
+
+    .neumorphic-pill-link {
         width: 100%;
     }
 }

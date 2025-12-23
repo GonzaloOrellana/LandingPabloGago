@@ -76,21 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.toggle('menu-open');
     });
 
-    // Simulación de Envío de Formulario
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = form.querySelector('button');
-        const originalText = btn.innerText;
 
-        btn.innerText = 'Enviando...';
-
-        setTimeout(() => {
-            alert('¡Gracias! Tu mensaje fue enviado. Te contactaremos en menos de 48 hs hábiles.');
-            form.reset();
-            btn.innerText = originalText;
-        }, 1500);
-    });
 
     // Carrusel 3D de Servicios
     const track = document.getElementById('servicesTrack');
